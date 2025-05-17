@@ -3,6 +3,9 @@ import pandas as pd
 import os
 import plotly.express as px
 from datetime import datetime
+import os
+
+
 
 # Set page configuration
 st.set_page_config(
@@ -31,6 +34,9 @@ st.markdown("""
 """, unsafe_allow_html=True)
 
 DATA_FOLDER = "data"
+# Création automatique du dossier s'il n'existe pas
+if not os.path.exists(DATA_FOLDER):
+    os.makedirs(DATA_FOLDER)
 
 # Get all Excel files in data folder (ignore __pycache__ and non-xlsx)
 excel_files = [f for f in os.listdir(DATA_FOLDER) if f.endswith('.xlsx') and not f.startswith('__')]
